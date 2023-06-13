@@ -10,9 +10,9 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | name-here     |
-| Student ID    | id-here       |
-| Student Email | email-here    |
+| Student Name  | Juan          |
+| Student ID    | 923058731     |
+| Student Email | jestradazuluaga@sfsu.edu    |
 
 
 
