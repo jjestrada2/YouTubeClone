@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Video</title>
+</head>
+<body>
+    <header>
+        <h1>Post</h1>
+        <p>This is a where you post videos</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href = "index.html">Home</a></li>
+            <li><a href = "login.html">Sing In</a></li>
+            <li><a href = "postvideo.html">Post</a></li>
+            <li><a href = "registration.html">Sing Up</a></li>
+            <li><a href = "viewpost.html">Feed</a></li>
+        </ul>
+    </nav>
+    <form>
+        <fieldset>
+            <legend>Login</legend>
+            <label for="post-title">Post title</label>
+            <input type = "text" required name = "post-title" placeholder="Funny Cat Dancing"/>
+            <br>
+            <br>
+            <label for="description">Description</label>
+            <input type = "text"  name = "description" placeholder="My cat niki is dancing ..."/>
+            <br>
+            <br>
+            <label for="video-file">Upload MP4 Video</label>
+            <input type = "file" required name = "video-file"/>
+            <br>
+            <p><input type="checkbox" required name="terms">I accept the <a href="https://www.youtube.com/static?template=terms">Terms and Conditions</a></p>
+            <br>
+            <br>
+            <input type="submit" value="Post"/>
+        </fieldset>
+    </form>
+    <footer id="page-footer">
+        &copy; Made with ❤️ by Juan Estrada
+    </footer>
+    
+</body>
+</html>
