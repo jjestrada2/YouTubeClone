@@ -4,44 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+    <link rel="stylesheet" href="../css/registration.css">
 </head>
 <body>
     <header>
-        <h1>Sign Up</h1>
-        <p>This is the registration page</p>
+        <nav>
+            <ul>
+                <li><a href = "index.html">Home</a></li>
+                <li><a href = "login.html">Sing In</a></li>
+                <li><a href = "postvideo.html">Post</a></li>
+                <li><a href = "registration.html">Sing Up</a></li>
+                <li><a href = "viewpost.html">Feed</a></li>
+            </ul>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href = "index.html">Home</a></li>
-            <li><a href = "login.html">Sing In</a></li>
-            <li><a href = "postvideo.html">Post</a></li>
-            <li><a href = "registration.html">Sing Up</a></li>
-            <li><a href = "viewpost.html">Feed</a></li>
-        </ul>
-    </nav>
-    <form>
-        <fieldset>
-            <legend>Registration</legend>
-            <label for="username">Username</label>
-            <input type = "text" name = "username" placeholder="JuanEstrada"/>
-            <br>
-            <br>
-            <label for="email">Email</label>
-            <input type="email" name="email"  placeholder="juan5801331@mail.com"/>
-            <br>
-            <br>
-            <label for = "password">Password</label>
-            <input type="password" name="password"/>
-            <br>
-            <br>
-            <label for = "Confirm-password">Confirm Password</label>
-            <input type="password" name="Confirm-password"/>
-            <br>
-            <br>
-            <p><input type="checkbox" required name="age">I am 13 years old or older</p>
-            <p><input type="checkbox" required name="terms">I accept the <a href="https://www.youtube.com/static?template=terms">Terms and Conditions</a></p>
-            <input type="submit" value="Submit"/>
-        </fieldset>
+
+        <div class="form">
+            <form>
+                    <p>Registration</p>
+                    <input type = "text" name = "username" placeholder="username"/>
+                    <input type="email" name="email"  placeholder="mailito@mail.com"/>
+                    <input type="password" name="password" placeholder="password"/>
+                    <input type="password" name="password" placeholder="Confirm-password"/>
+                    <div class="checkbox-container">
+                        <p><input type="checkbox" required name="age">I am 13 years old or older</p>
+                    </div>
+                    <div class="checkbox-container">
+                        <p><input type="checkbox" required name="terms">I accept the <a href="https://www.youtube.com/static?template=terms">Terms and Conditions</a></p>
+                    </div>
+                    <input id="submit" type="submit" value="Submit"/>
+            </form>
+        </div>
 
     <footer id="page-footer">
         &copy; Made with ❤️ by Juan Estrada
