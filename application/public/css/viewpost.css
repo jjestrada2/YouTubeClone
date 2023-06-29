@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto,"Nunito",Arial, Helvetica, sans-serif;
+}
+
+section {
+    width: 100vw;
+    height: 100vw;
+    position: absolute;
+}
+
+.card{
+    width: 350px;
+    height: 600px;
+    background-color: #fff;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 14px 0px;
+    
+
+}
+
+svg{
+    width: 33px;
+    padding: 5px;
+    cursor: pointer;
+    color: #5c5b5b;
+}
+.info-svg{
+    background-color: #f0f0f0;
+    border-radius: 50%;
+}
+
+.top, .body-icons{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.info img{
+    width: 35px;
+    padding: 2px;
+    background-color: #ffff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 0px rgb(216, 216, 216,0.45);
+}
+
+.info{
+    display: flex;
+}
+
+.user-name{
+    margin: 0px 10px;
+}
+
+.user-name .name{
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.user-name p{
+    font-size: 10px;
+
+}
+
+.user-name .id{
+    color: grey;
+}
+
+.body, .bottom-section{
+    padding: 5px 15px;
+
+}
+
+.body video{
+    width:100%;
+    border-radius: 5px;
+}
+
+.body-icons{
+    padding: 5px 0px; 
+
+}
+
+.bottom{
+    margin: auto;
+    display: flex;
+    margin-top: 10px;
+    padding: 7px;
+    position: relative;
+}
+
+input{
+    width: 100%;
+    padding: 5px;
+    padding-right: 40px;
+    border-radius: 10px;
+    border: 2px solid #a39e9e;
+    font-size: 15px;
+}
+ .bottom svg{
+    position: absolute;
+    right: 7px;
+    top: 1px;    
+}
+
+.bottom svg:hover{
+    color: #313030;
+}
+
+.bottom-section h4,p{
+    padding: 0 7px;
+}
+
+h6,span{
+    padding: 4px 10px;
+    font-family: 'Roboto','Courier new', Courier,monospace;
+}
+
+span{
+    color: #8441f0;
+}
+
+.sub-heading{
+    display: flex;
+    justify-content: space-between;
+}
