@@ -4,53 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/viewpost.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Feed</title>
+    <title>Single Post</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href = "index.html">Home</a></li>
-                <li><a href = "login.html">Sing In</a></li>
-                <li><a href = "postvideo.html">Post</a></li>
-                <li><a href = "registration.html">Sing Up</a></li>
-                <li><a href = "viewpost.html">Feed</a></li>
-            </ul>
-        </nav>
+<div class="container">
+
+    <header class="page-header">
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="navigation__button">
+            <span class="navigation__icon" aria-label="toggle navigation menu"></span>
+            </label>
+            <div class="navigation__background"></div>
+    
+            <nav class="navigation__nav" role="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                    <a href="index.html" class="navigation__link">Home</a>
+                    </li>
+                    <li class="navigation__item">
+                    <a href="login.html" class="navigation__link">Sing In</a>
+                    </li>
+                    <li class="navigation__item">
+                    <a href="postvideo.html" class="navigation__link">Post</a>
+                    </li>
+                    <li class="navigation__item">
+                    <a href="registration.html" class="navigation__link">Sing Up</a>
+                    </li>
+                    <li class="navigation__item">
+                    <a href="viewpost.html" class="navigation__link">Single Post</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
     
-<!--
-    <article class="forecast">
-        <h2>Trending Videos</h2>
-        <article class="post-1">
-            <h3>Post 1 title</h3>
-            <p>Author 1</p>
-            <p>Posted On: 06/15/2023</p>
-            <div class="video-container">
-                <video controls>
-                    <source src="movie.mp4" type="video/mp4">
-                </video>
-            </div>
-            <div class="comment-section">
-                <div class="comments">
-                    <p>Comment...</p>
-                </div>
-                <fieldset>
-                    <form>
-                        <input type="text" placeholder="Write a comment..."/>
-                        <input type="submit" value="submit">
-                    </form>
-                </fieldset>
-            </div>
-
-            </div>
-        </article>
-
-       
-        
-    </article>
--->
+    <main class="main-content">
     <section>
         <div class="card">
             <div class="top">
@@ -96,9 +87,9 @@
 
         </div>
     </section>
-    <footer id="page-footer">
-        &copy; Made with ❤️ by Juan Estrada
-    </footer>
+    </main>
+    <footer id="page-footer">&copy; Made with ❤️ by Juan Estrada</footer>
+</div>
     
 </body>
 </html>

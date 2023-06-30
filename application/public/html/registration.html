@@ -5,20 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
     <link rel="stylesheet" href="../css/registration.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href = "index.html">Home</a></li>
-                <li><a href = "login.html">Sing In</a></li>
-                <li><a href = "postvideo.html">Post</a></li>
-                <li><a href = "registration.html">Sing Up</a></li>
-                <li><a href = "viewpost.html">Feed</a></li>
-            </ul>
-        </nav>
+    <div class="container"></div>
+    <header class="page-header">
+        <div class="navigation">
+            <input type="checkbox" class="navigation__checkbox" id="nav-toggle">
+            <label for="nav-toggle" class="navigation__button">
+            <span class="navigation__icon" aria-label="toggle navigation menu"></span>
+            </label>
+            <div class="navigation__background"></div>
+    
+            <nav class="navigation__nav" role="navigation">
+                <ul class="navigation__list">
+                    <li class="navigation__item">
+                    <a href="index.html" class="navigation__link">Home</a>
+                    </li>
+                    <li class="navigation__item">
+                    <a href="login.html" class="navigation__link">Sing In</a>
+                    </li>
+                    <li class="navigation__item">
+                    <a href="postvideo.html" class="navigation__link">Post</a>
+                    </li>
+                    <li class="navigation__item">
+                    <a href="registration.html" class="navigation__link">Sing Up</a>
+                    </li>
+                    <li class="navigation__item">
+                    <a href="viewpost.html" class="navigation__link">Single Post</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
-
+    <main class="main-content">
         <div class="form">
             <form>
                     <p>Registration</p>
@@ -35,10 +55,8 @@
                     <input id="submit" type="submit" value="Submit"/>
             </form>
         </div>
-
-    <footer id="page-footer">
-        &copy; Made with ❤️ by Juan Estrada
-    </footer>
-    
+    </main>
+    <footer id="page-footer">&copy; Made with ❤️ by Juan Estrada</footer>
+</div>
 </body>
 </html>
