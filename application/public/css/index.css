@@ -23,8 +23,8 @@ body{
 }
 
 .video-container{
-    display: flex;
-    flex-direction : column;    
+    flex-direction : column;
+    display: flex;    
 }
 
 .thumbnail {
