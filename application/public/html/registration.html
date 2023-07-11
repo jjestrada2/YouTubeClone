@@ -6,6 +6,7 @@
     <title>Registration</title>
     <link rel="stylesheet" href="../css/registration.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <script defer src="../js/registration.js"></script>
 </head>
 <body>
     <div class="container"></div>
@@ -40,12 +41,24 @@
     </header>
     <main class="main-content">
         <div class="form">
-            <form>
+            <form id="form" class="registration">
                     <p>Registration</p>
-                    <input type = "text" name = "username" placeholder="username"/>
-                    <input type="email" name="email"  placeholder="mailito@mail.com"/>
-                    <input type="password" name="password" placeholder="password"/>
-                    <input type="password" name="password" placeholder="Confirm-password"/>
+                    <div class="input-control">
+                        <input type = "text" id="username" name = "username" placeholder="username"/>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input id="email" type="email" name="email"  placeholder="mailito@mail.com"/>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input type="password" name="password" id="password1" placeholder="password"/>
+                        <div class="error"></div>
+                    </div>
+                    <div class="input-control">
+                        <input type="password" name="password" id="password2" placeholder="Confirm-password"/>
+                        <div class="error"></div>
+                    </div>
                     <div class="checkbox-container">
                         <p><input type="checkbox" required name="age">I am 13 years old or older</p>
                     </div>

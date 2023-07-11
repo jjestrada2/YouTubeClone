@@ -304,6 +304,16 @@ nav ul {
       }
       
       
-      
-      
-
+    .input-control.success input {
+        background-color: #09c37225;
+    }
+    
+    .input-control.error input {
+        background-color: #ff386039;
+    }
+    
+    .input-control .error {
+        color: #ff3860;
+        font-size: 9px;
+        height: 13px;
+    }
