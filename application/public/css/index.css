@@ -25,6 +25,7 @@ body{
 .video-container{
     flex-direction : column;
     display: flex;    
+    
 }
 
 .thumbnail {
