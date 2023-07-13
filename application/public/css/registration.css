@@ -21,6 +21,11 @@ body{
     
 }
 
+.form .error{
+    display: inline;
+    z-index: 1;
+}
+
 .form p{
     font-size:15px;
     padding: 1px;
