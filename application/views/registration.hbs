@@ -1,6 +1,6 @@
     <main class="main-content">
         <div class="form">
-            <form id="form" class="registration">
+            <form id="form" class="registration" action="/users/register" method="post" enctype="application/x-www-form-urlencoded">
                     <p>Registration</p>
                     <div class="input-control">
                         <div class="error"></div>
@@ -14,12 +14,12 @@
                     </div>
                     <div class="input-control">
                         <div class="error"></div>
-                        <input type="password" name="password" id="password1" placeholder="password"/>
+                        <input type="password" name="password" id="password" placeholder="password"/>
                        
                     </div>
                     <div class="input-control">
                         <div class="error"></div>
-                        <input type="password" name="password" id="password2" placeholder="Confirm-password"/>
+                        <input type="password" name="password" id="confirmPassword" placeholder="Confirm-password"/>
                        
                     </div>
                     <div class="checkbox-container">

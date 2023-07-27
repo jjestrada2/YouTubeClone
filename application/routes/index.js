@@ -15,7 +15,7 @@ router.get("/login",function(re,res,next){
 });
 
 router.get("/registration",function(re,res,next){
-    res.render('registration',{title:"Registration",css :["registration.css"], js:["registration.js"]})
+    res.render('registration',{title:"Registration",css :["registration.css"]/*, js:["registration.js"]*/})
 });
 
 router.get("/postvideo",function(re,res,next){
