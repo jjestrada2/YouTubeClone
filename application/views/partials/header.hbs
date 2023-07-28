@@ -11,20 +11,38 @@
                             <li class="navigation__item">
                             <a href="/" class="navigation__link">Home</a>
                             </li>
-                            <li class="navigation__item">
-                            <a href="/login" class="navigation__link">Sing In</a>
-                            </li>
+
                             <li class="navigation__item">
                             <a href="/postvideo" class="navigation__link">Post</a>
                             </li>
-                            <li class="navigation__item">
-                            <a href="/registration" class="navigation__link">Sing Up</a>
-                            </li>
+                            
                             <li class="navigation__item">
                             <a href="/viewpost" class="navigation__link">Single Post</a>
                             </li>
+
+                            {{#if isLoggedIn}}
+                            <li class="navigation__item">
+                                <form id="form" class="logout" action="/users/logout" method="post" enctype="application/x-www-form-urlencoded">
+                                
+                                    <button type="submit" value="Logout" class="navigation__link">Logout</button>
+                            
+                                   
+                                </form>
+                            </li>
+                            {{else}}
+                            <li class="navigation__item">
+                            <a href="/login" class="navigation__link">Sing In</a>
+                            </li>
+
+                            <li class="navigation__item">
+                            <a href="/registration" class="navigation__link">Sing Up</a>
+                            </li>
+
+                            {{/if}}
+                            
                         </ul>
                     </nav>
+                    
                 </div>
         
         </header>

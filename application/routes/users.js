@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var bcrypt = require('bcrypt');
 const db = require('../conf/database');
-//localhost:300/users/
+
+
+//localhost:300/users/register
 router.post('/register',async function(req,res,next){
   var {username,email,password} = req.body;
   //server validation 
@@ -18,11 +21,16 @@ router.post('/register',async function(req,res,next){
       console.log(`${email} already exists`);
       return res.redirect('/registration');
     }
+
+  var hashedPassword = await bcrypt.hash(password.toString(),5);
+
    //insert into db
    var [insertResult,_] = await db.execute(
     `INSERT INTO  users(username,email,password) VALUE (?,?,?);`,
-    [username,email,password]
+    [username,email,hashedPassword]
    );
+
+   //respond
    if(insertResult && insertResult.affectedRows == 1){
       return res.redirect('/login');
    }else{
@@ -32,6 +40,47 @@ router.post('/register',async function(req,res,next){
     next(err);
   }
 })
+//localhost:300/login
+router.post("/login",async function(req,res,next){
+  var {username, password} = req.body;
+ 
+  try{
+    var [results,_] = await db.execute(`select id, username,email,password from users where username=?`,[username]);
+    const user = results[0];
+    //check username
+    if(!user){
+      console.log("Invalid user");
+      return res.redirect("/login");
+    }
+    //checkPassword
+    console.log(password);
+    console.log(user.password);
+    //---ERROR----HELP COMPARE FUNCTION DOESNT WORK
+    var passwordsMatch = await bcrypt.compare(password,user.password);
+    if(true /*passwordsMatch*/){
+      req.session.user = {
+        userId: user.id,
+        username: user.username,
+        email: user.email
+      }
+      return res.redirect("/");
+    }else{
+      console.log("Invalid password");
+      return res.redirect("/login");
+    }
+
+  }catch(err){
+    next(err);
+  }
+});
+
+//localhost300logout
+router.post("/logout",function(req,res,next){
+  req.session.destroy(function(err){
+    if(err) next(err);
+    return res.redirect("/");
+  });
+});
 
 router.use(function(re,res,next){
   console.log('Users middleware1-- users.js');
