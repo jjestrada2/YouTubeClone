@@ -4,6 +4,7 @@ var bcrypt = require('bcrypt');
 const db = require('../conf/database');
 
 
+
 //localhost:300/users/register
 router.post('/register',async function(req,res,next){
   var {username,email,password} = req.body;
@@ -12,14 +13,21 @@ router.post('/register',async function(req,res,next){
     //uniquenes check validation
     var [results, _] =await db.execute(`select id from users where username=?`,[username]);
     if(results && results.length > 0){
-      console.log(`${username} already exists`);
-      return res.redirect('/registration');
+      req.flash("error",`${username} Already exists`);
+      return req.session.save(function(err){
+        if(err) next(err);
+        return res.redirect('/registration');
+      });
+      
     }
 
     var [results, _] =await db.execute(`select id from users where email=?`,[email]);
     if(results && results.length > 0){
-      console.log(`${email} already exists`);
-      return res.redirect('/registration');
+      req.flash("error",`${email} Already exists`);
+      return req.session.save(function(err){
+        if(err) next(err);
+        return res.redirect('/registration');
+      });
     }
 
   var hashedPassword = await bcrypt.hash(password.toString(),5);
@@ -32,9 +40,19 @@ router.post('/register',async function(req,res,next){
 
    //respond
    if(insertResult && insertResult.affectedRows == 1){
-      return res.redirect('/login');
+    req.flash("success","You are now one of us!");
+    return req.session.save(function(err){
+      if(err) next(err);
+      return res.redirect("/login");
+    });
+     
    }else{
+    req.flash("error","Erro try later");
+    return req.session.save(function(err){
+      if(err) next(err);
       return res.redirect('/registration');
+    });
+    
    }
   }catch(err){
     next(err);
@@ -49,8 +67,12 @@ router.post("/login",async function(req,res,next){
     const user = results[0];
     //check username
     if(!user){
-      console.log("Invalid user");
-      return res.redirect("/login");
+      req.flash("error","Login Failed: Invalid Credentials");
+      return req.session.save(function(err){
+        if(err) next(err);
+        return res.redirect("/login");
+      });
+      
     }
     //checkPassword
     console.log(password);
@@ -62,11 +84,20 @@ router.post("/login",async function(req,res,next){
         userId: user.id,
         username: user.username,
         email: user.email
-      }
-      return res.redirect("/");
+      };
+      req.flash("success","You are now logged in");
+      return req.session.save(function(err){
+        if(err) next(err);
+        return res.redirect("/");
+      });
+      
     }else{
-      console.log("Invalid password");
-      return res.redirect("/login");
+      req.flash("error","Login Failed: Invalid Credentials");
+      return req.session.save(function(err){
+        if(err) next(err);
+        return res.redirect("/login");
+      });
+      
     }
 
   }catch(err){
