@@ -29,8 +29,8 @@ router.post('/register',async function(req,res,next){
         return res.redirect('/registration');
       });
     }
-
-  var hashedPassword = await bcrypt.hash(password.toString(),5);
+    console.log(req.body);
+  var hashedPassword = await bcrypt.hash(password,5);
 
    //insert into db
    var [insertResult,_] = await db.execute(
@@ -79,7 +79,7 @@ router.post("/login",async function(req,res,next){
     console.log(user.password);
     //---ERROR----HELP COMPARE FUNCTION DOESNT WORK
     var passwordsMatch = await bcrypt.compare(password,user.password);
-    if(true /*passwordsMatch*/){
+    if(passwordsMatch){
       req.session.user = {
         userId: user.id,
         username: user.username,
