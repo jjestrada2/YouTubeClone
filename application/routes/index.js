@@ -24,9 +24,7 @@ router.get("/postvideo",isLoggedIn,function(req,res,next){
   res.render('postvideo',{title:"PostVideo",css :["postVideo.css"]});
 });
 
-router.get("/viewpost/",function(req,res,next){
-  res.render('viewpost',{title:"Viewpost",css :["viewpost.css"]});
-});
+
 
 
 module.exports = router;

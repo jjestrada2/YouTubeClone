@@ -74,10 +74,7 @@ router.post("/login",async function(req,res,next){
       });
       
     }
-    //checkPassword
-    console.log(password);
-    console.log(user.password);
-    //---ERROR----HELP COMPARE FUNCTION DOESNT WORK
+    
     var passwordsMatch = await bcrypt.compare(password,user.password);
     if(passwordsMatch){
       req.session.user = {

@@ -7,18 +7,15 @@
                 <div class="info">
                     <a href="#"><img src="http://unsplash.it/250/150?gravity=center" alt=""></a>
                     <div class="user-name">
-                        <p class="name">Juan Estrada</p>
-                        <p class="id">@jjestrada1</p>
+                        <p class="name">{{post.username}}</p>
                     </div>
                 </div>
-                <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M120-240v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg>
-                </div>
+                
             </div>
             <div class="body">
                 <video width="320" height="240" controls>
-                    <source src="movie.mp4" type="video/mp4">
-                    <source src="movie.ogg" type="video/ogg">
+                    <source src="/{{post.video}}" type="video/mp4">
+                    
                     Your browser does not support the video tag.
                   </video>
                   <div class="body-icons">
@@ -32,10 +29,10 @@
             </div>
             <div class="bottom-section">
                 <div class="sub-heading">
-                    <h4>Title</h4>
-                    <h6>Time 3:00 PM</h6>
+                    <h4>{{post.title}}</h4>
+                    <h6>{{formatDateString post.createdAt}}</h6>
                 </div>
-                <p>Lorem Ipsum is simply dummy text of the printing and </p>
+                <p>{{post.description}}</p>
                 <div class="bottom">
                     <input type="placeholder" placeholder="Add A Comment">
                     <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M120-160v-640l760 320-760 320Zm60-93 544-227-544-230v168l242 62-242 60v167Zm0 0v-457 457Z"/></svg>
