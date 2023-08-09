@@ -1,7 +1,7 @@
 var express = require('express');
 var router =  express.Router();
 var multer = require('multer');
-const { makeThumbnail, getPostById } = require('../middleware/posts');
+const { makeThumbnail, getPostById, getCommentsForPostById } = require('../middleware/posts');
 const db = require('../conf/database');
 const { isLoggedIn } = require('../middleware/auth');
 
@@ -52,9 +52,39 @@ router.post('/create',isLoggedIn ,upload.single('uploadVideo'),makeThumbnail, as
   }
 });
 
-//localhost:3000/posts/1
-router.get("/:id(\\d+)",getPostById,function(req,res,next){
-  res.render('viewpost',{title:"Viewpost",css :["viewpost.css"]});
+//localhost::3000/posts/search?key=value
+router.get("/search",async function(req,res,next){
+  var{ key } = req.query;
+  try{
+    const searchValue = `%${key}%`;
+    var [results,_] = await db.execute(`select id, title,description,thumbnail, concat_ws("",title,
+    description) as haystack
+    FROM posts
+    HAVING haystack like ?;`,[searchValue]);
+    if(results && results.length > 0){
+      res.locals.count = results.length;
+      res.locals.results = results;
+      res.locals.searchValue = key;
+      return res.render('index',{title:"Home",css :["index.css"]});
+      
+    }else{
+      //return first results of the table
+      return res.status(200).json({
+        message:"no results found!"
+      });
+    }
+  }catch(err){
+    next(err);
+  }
+  
 });
 
+//localhost:3000/posts/1
+router.get("/:id(\\d+)",getPostById, getCommentsForPostById,function(req,res,next){
+  res.render('viewpost',{title:"Viewpost",css :["viewpost.css"],js:["viewpost.js"]});
+});
+
+router.delete("/:id", function(req,res,next){
+  res.send();
+});
 module.exports = router;

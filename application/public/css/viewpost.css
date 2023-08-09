@@ -21,7 +21,7 @@ section {
 
 .card{
     width: 350px;
-    height: 600px;
+    height: auto;
     background-color: #fff;
     margin: auto;
     margin-top: 10%;

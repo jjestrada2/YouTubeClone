@@ -33,12 +33,21 @@
                     <h6>{{formatDateString post.createdAt}}</h6>
                 </div>
                 <p>{{post.description}}</p>
+                 {{log post.comments}}
                 <div class="bottom">
-                    <input type="placeholder" placeholder="Add A Comment">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M120-160v-640l760 320-760 320Zm60-93 544-227-544-230v168l242 62-242 60v167Zm0 0v-457 457Z"/></svg>
-                    
+                   
+                    <input id="comment-text" data-postid="{{post.id}}" placeholder="Add A Comment">
+                    <svg id="comment-button" aria-hidden="true" data-postid="{{post.id}}" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 
+                    960 960" width="48"><path d="M120-160v-640l760 320-760 320Zm60-9
+                    3 544-227-544-230v168l242 62-242 60v167Zm0 0v-457 457Z"/></svg>
+                     
                 </div>
-                
+               <div id="comments-list" class="comments">
+                    {{#each post.comments}}
+                        {{> comment this}}
+                    {{/each}}
+               </div>
+               
             </div>
 
         </div>

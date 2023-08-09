@@ -1,8 +1,26 @@
 var container = document.getElementById('main-content') ;
 var counter = document.getElementById('photos-counter');
+var searchButton = document.getElementById('search-button');
+/*
+if(searchButton){
+    searchButton.addEventListener('click',function(ev){
+        var searchText = document.getElementById('search-text').value;
+        if(!searchText) return;
+        const searchUrl = `/posts/search?key=${searchText}`
+        fetch(searchUrl)
+            .then((resp)=> resp.json())
+            .then((data) =>{
+                console.log(data);
+            })
+
+    });
+
+}*/
+    
+
 var photosCounter = 0;
 var url = "https://jsonplaceholder.typicode.com/albums/2/photos";
-
+/*
 function fadeOut(ev){
     const element = ev.currentTarget;
     var opacity = 1;
@@ -19,7 +37,7 @@ function fadeOut(ev){
     },50);
 }
 
-
+*/
 
 function buildCardHTML(data){
     return `<article class = "video-container">

@@ -1,11 +1,11 @@
-   
    <main class="main-content" >
     <a href="#">
         <img src="#" alt="" class="logo">
        </a>
-       <form class="search-bar">
-            <input class="search-input" type="search" placeholder="Search" arial-label="Search"/>
-            <button type = "submit" class="search-btn">
+       <form class="search-bar" action="/posts/search" method="get">
+            <input id = "search-text" class="search-input" type="search" placeholder="Search" arial-label="Search" name="key"
+            value="{{searchValue}}"/>
+            <button type="submit" class="search-btn" id="search-button">
                 <span class="material-icons">search</span>
             </button>
        </form>
@@ -14,8 +14,11 @@
             <div id="photos-counter"></div>
         </div>
         <section class="video-section" id="main-content">
-            
+            {{#each results}}
+                {{>card this}}
+            {{/each}}
             
         </section>
     </div>
     </main>
+    

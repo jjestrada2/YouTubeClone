@@ -2,61 +2,48 @@ var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcrypt');
 const db = require('../conf/database');
+const{doesEmailExist,doesUsernameExist,checkEmail,checkPassword,checkUsername} =require("../middleware/validation");
+
 
 
 
 //localhost:300/users/register
-router.post('/register',async function(req,res,next){
+router.post('/register',
+  checkUsername,
+  checkEmail, 
+  checkPassword,
+  doesUsernameExist, 
+  doesEmailExist,
+  async function(req,res,next){
   var {username,email,password} = req.body;
-  //server validation 
-  try{
-    //uniquenes check validation
-    var [results, _] =await db.execute(`select id from users where username=?`,[username]);
-    if(results && results.length > 0){
-      req.flash("error",`${username} Already exists`);
-      return req.session.save(function(err){
-        if(err) next(err);
-        return res.redirect('/registration');
-      });
-      
+    try{
+      var hashedPassword = await bcrypt.hash(password,5);
+
+      //insert into db
+      var [insertResult,_] = await db.execute(
+        `INSERT INTO  users(username,email,password) VALUE (?,?,?);`,
+        [username,email,hashedPassword]
+      );
+
+      //respond
+      if(insertResult && insertResult.affectedRows == 1){
+        req.flash("success","You are now one of us!");
+        return req.session.save(function(err){
+          if(err) next(err);
+          return res.redirect("/login");
+        });
+        
+      }else{
+        req.flash("error","Erro try later");
+        return req.session.save(function(err){
+          if(err) next(err);
+          return res.redirect('/registration');
+        });
+        
+      }
+    }catch(err){
+      next(err);
     }
-
-    var [results, _] =await db.execute(`select id from users where email=?`,[email]);
-    if(results && results.length > 0){
-      req.flash("error",`${email} Already exists`);
-      return req.session.save(function(err){
-        if(err) next(err);
-        return res.redirect('/registration');
-      });
-    }
-    console.log(req.body);
-  var hashedPassword = await bcrypt.hash(password,5);
-
-   //insert into db
-   var [insertResult,_] = await db.execute(
-    `INSERT INTO  users(username,email,password) VALUE (?,?,?);`,
-    [username,email,hashedPassword]
-   );
-
-   //respond
-   if(insertResult && insertResult.affectedRows == 1){
-    req.flash("success","You are now one of us!");
-    return req.session.save(function(err){
-      if(err) next(err);
-      return res.redirect("/login");
-    });
-     
-   }else{
-    req.flash("error","Erro try later");
-    return req.session.save(function(err){
-      if(err) next(err);
-      return res.redirect('/registration');
-    });
-    
-   }
-  }catch(err){
-    next(err);
-  }
 })
 //localhost:300/login
 router.post("/login",async function(req,res,next){
@@ -120,26 +107,9 @@ router.use(function(re,res,next){
   next()
 })
 
-/* GET users listing. */
-/* GET home page. */
-//localhost:300/users/
-router.get('/', function(req, res, next) {
-  res.render('respond with a source from get');
-});
-//localhost:300/users/
-/*router.update('/', function(req, res, next) {
-  res.render('respond with a source from get');
-});*/
-//localhost:300/users/
-router.post('/', function(req, res, next) {
-  res.render('respond with a source from post');
-});
-//localhost:300/users/
-router.patch('/', function(req, res, next) {
-  res.render('respond with a source from patch');
+router.get("/profile/:id",function(req,res,next){
+  //profilepage
+  res.end();
 });
 
-router.delete('/', function(req, res, next) {
-  res.render('respond with a source from delete');
-});
 module.exports = router;
