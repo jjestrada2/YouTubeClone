@@ -19,9 +19,16 @@ Please follow the instructions below and fill in the information requested when 
 # Build/Run Instructions
 
 ## Build Instructions
-1. steps here
-2. steps here
+1. npm install
+2. In the application folder create a .env file with the following variables :
+-DB_HOST="*****"
+-DB_USER="*****"
+-DB_PASSWORD="*****"
+-PORT="*****"
+-DB_NAME="*****"
+
+3. npm run builddb
 
 ## Run Instructions
-1. steps here
-2. steps here 
+1. npm start
+
