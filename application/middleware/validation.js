@@ -15,8 +15,8 @@ module.exports = {
       if(validator.isStrongPassword(password)&&password===cpassword){
         next();
       }else{
-        req.flash("perror","invalid password");
-        return res.redirect('/register');
+        req.flash("error","invalid password");
+        return res.redirect('/registration');
       }
 
         

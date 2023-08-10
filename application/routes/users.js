@@ -9,11 +9,11 @@ const{doesEmailExist,doesUsernameExist,checkEmail,checkPassword,checkUsername} =
 
 //localhost:300/users/register
 router.post('/register',
-  checkUsername,
+  /*checkUsername,
   checkEmail, 
   checkPassword,
   doesUsernameExist, 
-  doesEmailExist,
+  doesEmailExist,*/
   async function(req,res,next){
   var {username,email,password} = req.body;
     try{
