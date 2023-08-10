@@ -19,7 +19,7 @@ module.exports = {
             if(err) next(err);
             return res.status(401).json({
               status:"failed",
-              statsuCode:-1,
+              statusCode:-1,
               message:"Must be logged in to create a comment!",
               redirectTo:"/login"
             });

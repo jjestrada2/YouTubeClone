@@ -18,7 +18,7 @@ function buildCommentDiv(data){
     dateSpan.classList.add('comment-date');
     const commentText = document.createElement('div');
     commentText.classList.add('comment-text');
-    commentText.appendChild(document.createTextNode(data.text));
+    commentText.appendChild(document.createTextNode(data.commentText));
     divComment.append(usernametag,dateSpan,commentText);
     return divComment;
 }
@@ -49,7 +49,7 @@ if(commentButton){
             .then((data)=>{
                 console.log(data);
                 if(data.statusCode < 0){
-                    window.location.replace(data.redirecTo);
+                    window.location.replace(data.redirectTo);
                 }else{
                     const commentDiv = buildCommentDiv(data);
                     commentsList.append(commentDiv);
