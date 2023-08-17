@@ -10,9 +10,9 @@ Please follow the instructions below and fill in the information requested when 
 
 |               | Information   |
 |:-------------:|:-------------:|
-| Student Name  | Juan          |
-| Student ID    | 923058731     |
-| Student Email | jestradazuluaga@sfsu.edu    |
+| Author        | Juan          |
+| LinkdIn       | https://www.linkedin.com/in/juanjestrada/ |
+| Student Email | jjestradazuluaga@gmail.com |
 
 
 
