@@ -1,4 +1,5 @@
 # YouTube Clone👻
+Fully functional video management web application that allows users to post, search, view, and comment on videos using NodeJS and Express as server-side technologies, JavaScript for processing requests as well as interacts with a MySQL database and HTML CSS and handlebars for the frontend.
 *Demo*:https://youtu.be/XRCpFNJreQc?si=gRQoE0tO4RdO5z-d
 ## Inspiration💥
 
